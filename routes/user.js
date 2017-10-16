@@ -2,7 +2,7 @@ const
   express = require('express'),
   userRouter = new express.Router(),
   passport = require('passport')
-  httpClient = require('request')
+  
 //
 
 userRouter.route('/signup')
@@ -40,15 +40,20 @@ userRouter.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-
-//Sports API test
-userRouter.get('/test', (req, res) => {
-  var apiUrl = 'https://api.sportradar.us/nfl-ot2/games/b7aeb58f-7987-4202-bc41-3ad9a5b83fa4/boxscore.xml?api_key=ptr58dz7pn2z8mdxbqrcsqdj'
+userRouter.route('/test')
+.get((req, res) => {
+  res.render('test/test', {
+    user: req.user
+  })
+  var apiUrl = 'http://api.sportradar.us/nfl-ot2/games/2017/REG/7/schedule.json?api_key=ptr58dz7pn2z8mdxbqrcsqdj'
   httpClient.get(apiUrl, (err, response, body) => {
-    var data = JSON.parse(body)
-    console.log(data)   // test
+      var data = JSON.parse(body)
+  //   console.log(data)   // test
+      console.log(data.week.games)
+
   })
 })
+
 
 
 module.exports = userRouter

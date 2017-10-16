@@ -11,6 +11,7 @@ const
   passport = require('passport'),
   passportConfig = require('./config/passport.js'),
   userRoutes = require('./routes/user.js')
+  httpClient = require('request')
 //
 
 // enviroment port
@@ -64,6 +65,16 @@ app.get('/', (req, res) => {
 
 app.use('/', userRoutes)
 
+//Sports API test
+app.get('/test', (req, res) => {
+    var apiUrl = 'http://api.sportradar.us/nfl-ot2/games/2017/REG/7/schedule.json?api_key=ptr58dz7pn2z8mdxbqrcsqdj'
+    httpClient.get(apiUrl, (err, response, body) => {
+        var data = JSON.parse(body)
+    //   console.log(data)   // test
+        console.log(data.week.games)
+
+    })
+  })
 
 app.listen(PORT, (err) => {
     console.log(err || `Listening to port 🤖  ${PORT} 🤖`)
