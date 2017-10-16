@@ -49,7 +49,7 @@ userRouter.route('/test')
   httpClient.get(apiUrl, (err, response, body) => {
       var data = JSON.parse(body)
   //   console.log(data)   // test
-      console.log(data.week.games)
+      console.log(data.week.games[2].home.alias)
 
   })
 })
