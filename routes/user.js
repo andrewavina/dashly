@@ -2,6 +2,7 @@ const
   express = require('express'),
   userRouter = new express.Router(),
   passport = require('passport')
+  httpClient = require('request')
 //
 
 userRouter.route('/signup')
@@ -40,6 +41,14 @@ userRouter.get('/logout', (req, res) => {
 })
 
 
+//Sports API test
+userRouter.get('/test', (req, res) => {
+  var apiUrl = 'https://api.sportradar.us/nfl-ot2/games/b7aeb58f-7987-4202-bc41-3ad9a5b83fa4/boxscore.xml?api_key=ptr58dz7pn2z8mdxbqrcsqdj'
+  httpClient.get(apiUrl, (err, response, body) => {
+    var data = JSON.parse(body)
+    console.log(data)   // test
+  })
+})
 
 
 module.exports = userRouter
