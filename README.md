@@ -42,7 +42,7 @@
 * Wireframes:
  	* ![Imgur](https://i.imgur.com/fL5qSiVm.jpg)
 	* ![Imgur](https://i.imgur.com/2FOhlAcm.jpg)
-* Presentation Deck
+* <a href"https://docs.google.com/presentation/d/1qgt_kIVCY7bNi5p-3QsJJDfZLEZSzetw84UjzSPD1LY/edit?usp=sharing"> Presentation Deck </a>
 
 ## Installation instructions to run your app locally on your machine
 * Fork from GitHub 
